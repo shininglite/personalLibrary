@@ -1,6 +1,7 @@
 $(document).ready(() => {
   const url = window.location.href.split('/');
-  const bookName = url[url.length - 1];
+  const bookId = url[url.length - 1];
+  console.log('BOOK ID:', bookId)
 
   function addNote(event){
     event.preventDefault()
@@ -9,7 +10,7 @@ $(document).ready(() => {
       note: newNote,
       bookId: $('#book-title').attr('data-book-id')
     }
-
+    console.log(newNoteObj)
     $.post('/api/book/note', newNoteObj)
       .then(response => {
         $('#new-note').val('');
@@ -36,21 +37,26 @@ $(document).ready(() => {
   function getBookNotes(){
     $('#notes').empty();
 
-    $.get('/api/book/notes/' + bookName)
+    $.get('/api/book/notes/' + bookId)
     .then(response => {
+      console.log(response)
       for (let i = 0; i < response.length; i++) {
-        const newNoteDiv = $('<li>').text(response[i].note);
-        const deleteButton = $(`<span><button class="delete-note" data-note-id=${response[i].id}>X</button></span>`);
+        const { id, note } = response[i]
+        const newNoteDiv = $('<li>').text(note);
+        const deleteButton = $(`
+          <span>
+            <button class="delete-note" data-note-id=${id}>X</button>
+          </span>`);
         newNoteDiv.append(deleteButton);
         $('#notes').append(newNoteDiv);
       }
     })
   }
 
-   $.get('/api/book/' + bookName)
+   $.get('/api/book/' + bookId)
     .then(response => {
-      const { id, firstName, lastName, title, coverPhoto, note } = response[0];
-     
+      const { id, firstName, lastName, title, coverPhoto } = response[0];
+      console.log(response)
       $('#book-image').attr('src', coverPhoto);
       $('#book-title').text(title);
       $('#book-title').attr('data-book-id', id)
