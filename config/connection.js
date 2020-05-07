@@ -27,6 +27,7 @@ module.exports = connection;
 //   if(err) throw error
 //   console.log(results)
 // })
+ 
 
 // WITH PROMISIFY - provides access to promises and gives us more control
 // connection.query('SELECT * FROM books')
