@@ -45,3 +45,12 @@
     - GET route for returning all notes for one book
     - POST route for adding a book note
     - DELETE route for deleting a note
+
+### Deployment
+
+This application is deployed at:
+ http://salty-chamber-38736.herokuapp.com/ 
+
+### Developer
+
+Tom van Deusen
