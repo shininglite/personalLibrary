@@ -1,6 +1,8 @@
 # Personal Library
 
-## Instructions
+## Description
+
+Personal Library is an application that allows a user to create a collection of books. It demonstrates how to create server side routes and how to use database to add and delete items.
 
 ### Phase 1 - ORM
 - Create an ORM with the following methods and properities
@@ -37,7 +39,7 @@
 
 ### Phase 3 - Controllers
   - Book Controller
-    -  GET route for returning all books
+    - GET route for returning all books
     - GET route for returning one book
     - POST route for adding a book
     
@@ -47,10 +49,12 @@
     - DELETE route for deleting a note
 
 ### Deployment
+Anyone can use this application at:
+http://salty-chamber-38736.herokuapp.com/ 
+(but be patient. I have a free account which may take 10 or 15 seconds to load the app.)
 
-This application is deployed at:
- http://salty-chamber-38736.herokuapp.com/ 
+See the code for this project on GitHub at:
+https://github.com/shininglite/personalLibrary
 
 ### Developer
-
 Tom van Deusen
